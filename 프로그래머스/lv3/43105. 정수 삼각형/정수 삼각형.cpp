@@ -20,7 +20,7 @@ int solution(vector<vector<int>> triangle) {
     // dp 계산
     for (int i = 2; i < n; i++) {
         for (int j = 1; j < i; j++) {
-            dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + triangle[i][j];
+            dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + triangle[i][j];//dp 사용해서 최댓값 찾기
         }
     }
     
@@ -28,7 +28,7 @@ int solution(vector<vector<int>> triangle) {
     int answer = 0;
     for (int i = 0; i < n; i++) {
         answer = max(answer, dp[n-1][i]);
-    }
+    }//각 라인마다 최대값 더해줌
     
     return answer;
 }
