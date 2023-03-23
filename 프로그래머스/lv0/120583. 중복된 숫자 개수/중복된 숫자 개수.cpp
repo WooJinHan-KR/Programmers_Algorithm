@@ -9,6 +9,6 @@ int solution(vector<int> array, int n) {
     for(int i=0; i<array.size(); i++){
         if(n==array[i])
             answer++;       
-    }
+    }//돌아가면서 중복된 수의 개수 더하기
     return answer;
 }
