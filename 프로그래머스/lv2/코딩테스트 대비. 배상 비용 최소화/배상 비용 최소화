@@ -1,0 +1,36 @@
+#include<vector>
+#include<iostream>
+#include <algorithm>
+using namespace std;
+
+int solution(int no, vector<int> works)
+{
+    double answer = 0;
+    int index = 0;
+    sort(works.begin(), works.end(), greater<>());
+    for(int i=0; i<no; i++){   
+        if(index == works.size()-1){
+            if (works[index] > 0) {
+                works[index]--;
+            }
+            index = 0;
+            continue;
+        }        
+        if(works[index] < works[index+1]){
+            if (works[index+1] > 0) {
+                works[++index]--;
+            }
+        }
+        else if(works[index] >= works[index+1]){
+            index = 0;
+            if (works[index] > 0) {
+                works[index]--;
+            }
+        }
+    }
+    
+    for(int i=0; i<works.size(); i++)
+        answer += works[i]*works[i];
+    
+    return answer;
+}
